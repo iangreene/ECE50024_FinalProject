@@ -168,11 +168,9 @@ for alpha_star in alpha_star_values:
         best_alpha_star = alpha_star
         best_loss = avg_loss
 
-# Train the model with the optimal alpha_star on the entire labeled dataset
 svm = SVC(class_weight={1: 1/(best_alpha_star), -1: 1/(1-best_alpha_star)})
 svm.fit(X_labeled, y_noisy)
 
-# Predict and evaluate the model
 y_pred = svm.predict(X_labeled)
 print("Optimal alpha_star:", best_alpha_star)
 print("Best cross-validated loss:", best_loss)
@@ -200,7 +198,7 @@ df["class"] = df["class"].replace(0, -1)
 X_labeled = df.iloc[:, :-1].to_numpy()
 y_labeled = df.iloc[:, -1].to_numpy()
 
-# Adding Noise to UCI Banknote Datset
+# Adding Noise to UCI Banknote Dataset
 rho_plus = 0.5
 rho_minus = 0.1
 
@@ -278,7 +276,7 @@ print("Optimal alpha_star:", best_alpha_star)
 print("Best cross-validated loss:", best_loss)
 print("Accuracy on the entire labeled dataset:", accuracy_score(y_labeled, y_pred))
 
-# Dataset Creation for UCI Heart
+# Dataset Creation for UCI Breast
 df = pd.read_csv("dataR2.csv")
 df["Classification"] = df["Classification"].replace(2, -1)
 
@@ -290,7 +288,7 @@ scaler = MinMaxScaler()
 X_labeled = scaler.fit_transform(X_labeled)
 print(X_labeled)
 
-# Adding Noise to UCI Heart Datset
+# Adding Noise to UCI Breast Dataset
 rho_plus = 0.1
 rho_minus = 0.4
 
@@ -358,11 +356,9 @@ for alpha_star in alpha_star_values:
         best_alpha_star = alpha_star
         best_loss = avg_loss
 
-# Train the model with the optimal alpha_star on the entire labeled dataset
 svm = SVC(class_weight={1: 1/(best_alpha_star), -1: 1/(1-best_alpha_star)})
 svm.fit(X_labeled, y_noisy)
 
-# Predict and evaluate the model
 y_pred = svm.predict(X_labeled)
 print("Optimal alpha_star:", best_alpha_star)
 print("Best cross-validated loss:", best_loss)

@@ -196,7 +196,7 @@ def optimize_rho(X, y, rho_values, k=5):
     best_params = find_best_params(X, y, best_rho_plus, best_rho_minus)
     return best_rho_plus, best_rho_minus, best_loss, best_params
 
-rho_values = np.linspace(0, 0.5, 11)  # Example: 11 values from 0 to 0.5
+rho_values = np.linspace(0, 0.5, 11)
 
 best_rho_plus, best_rho_minus, best_loss, best_params = optimize_rho(X_labeled, y_noisy, rho_values)
 print("")
@@ -237,7 +237,7 @@ df["class"] = df["class"].replace(0, -1)
 X_labeled = df.iloc[:, :-1].to_numpy()
 y_labeled = df.iloc[:, -1].to_numpy()
 
-# Adding Noise to UCI Banknote Datset
+# Adding Noise to UCI Banknote Dataset
 rho_plus = 0.5
 rho_minus = 0.1
 
@@ -335,7 +335,7 @@ def optimize_rho(X, y, rho_values, k=5):
     best_params = find_best_params(X, y, best_rho_plus, best_rho_minus)
     return best_rho_plus, best_rho_minus, best_loss, best_params
 
-rho_values = np.linspace(0, 0.5, 11)  # Example: 11 values from 0 to 0.5
+rho_values = np.linspace(0, 0.5, 11)
 
 best_rho_plus, best_rho_minus, best_loss, best_params = optimize_rho(X_labeled, y_noisy, rho_values)
 print("")
@@ -362,7 +362,7 @@ y_pred = clf.predict(X_labeled)
 acc = accuracy_score(y_labeled, y_pred)
 print('Accuracy:', acc)
 
-# Dataset Creation for UCI Heart
+# Dataset Creation for UCI Breast
 df = pd.read_csv("dataR2.csv")
 df["Classification"] = df["Classification"].replace(2, -1)
 
@@ -374,7 +374,7 @@ scaler = MinMaxScaler()
 X_labeled = scaler.fit_transform(X_labeled)
 print(X_labeled)
 
-# Adding Noise to UCI Heart Datset
+# Adding Noise to UCI Breast Dataset
 rho_plus = 0.1
 rho_minus = 0.4
 
@@ -472,7 +472,7 @@ def optimize_rho(X, y, rho_values, k=5):
     best_params = find_best_params(X, y, best_rho_plus, best_rho_minus)
     return best_rho_plus, best_rho_minus, best_loss, best_params
 
-rho_values = np.linspace(0, 0.5, 11)  # Example: 11 values from 0 to 0.5
+rho_values = np.linspace(0, 0.5, 11)
 
 best_rho_plus, best_rho_minus, best_loss, best_params = optimize_rho(X_labeled, y_noisy, rho_values)
 print("")
